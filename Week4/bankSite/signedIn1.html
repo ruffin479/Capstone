@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<style>
+    *{
+        box-sizing: border-box;
+    }
+    header{
+        background-color: #eef204;
+        padding: 30px;
+        background-image: url("bulldog.png");
+        background-repeat: no-repeat;
+    }
+    h1{
+        text-align: center;
+    }
+    footer{
+        background-color: #eef204;
+        padding: 10px;
+        text-align: center;
+        position: fixed;
+        bottom: 0;
+        width: 100%; 
+    }
+</style>
+<header> 
+    <head>
+
+        <title>Home Page of BSU Bank</title>
+
+    </head>
+
+    <body>
+
+        <h1>HOME PAGE</h1>
+        
+        <script> 
+
+            let temp = sessionStorage.getItem("email");
+            localStorage.setItem(temp, temp);
+
+            document.write("<h2 dir=rtl >Welcome, " + temp + " </h2>");
+
+            <!-- localStorage.clear(); -->
+
+
+        </script> 
+          
+    </body>
+</header>
+
+<section>
+    <nav>
+        <ul>
+            <li><a href="#">Deposit</a></li>
+            <li><a href="#">Withdraw</a></li>
+            <li><a href="#">Balance</a></li>
+        </ul>
+    </nav>
+</section>
+
+<footer>
+    <p>Go Bulldogs!</p>
+</footer>
+
+</html>
