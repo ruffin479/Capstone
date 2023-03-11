@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Sign In | By Code Info</title>
+    <link rel="stylesheet" href="signupStyle.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <h4>Bowie State University Bank</h4>
+    <div class="signin-box">
+      <h1>Sign In</h1>
+      <form>
+        <label>BSU Email</label>
+        <input type="email" placeholder="" id="email"/>
+        <label>Password</label>
+        <input type="password" id = "password" placeholder="" />
+        <input type="button" onclick= "login()" value="Submit" id="submit" />
+        
+
+      </form>
+
+      <script>
+
+        function login(){
+
+          var emailHold = document.getElementById("email").value;
+
+          console.log("user object: " + window.localStorage.getItem(emailHold));
+          console.log(typeof window.localStorage.getItem(emailHold));
+
+          var user1 = JSON.parse(window.localStorage.getItem(emailHold));
+
+          if(user1 != null){
+
+            //console.log("user1: " + user1);
+            //console.log("password: " + user1["password"]);
+
+            var emailExist = user1["email"];
+            var passWordHold = document.getElementById("password").value;
+            var passWordExist = user1["password"];
+
+            console.log("passwordHold " + passWordHold);
+            console.log("passWordExist " + passWordExist);
+            console.log("user " + user1);
+            console.log("email: " + user1["email"]);
+            console.log(typeof user1);
+
+        
+            if(passWordHold == passWordExist){
+
+              sessionStorage.setItem("email", emailHold);
+              window.location.href = "signedIn.html";
+            }
+            else{
+              alert("Password does not exist");
+            }
+
+          }
+          else{
+            alert("Email doesn't exist inside the database");
+          }  
+        }
+
+      </script>
+
+    </div>
+    <style>
+      a:hover {
+        color: #b7ba01;
+        background-color: black;
+      }
+    </style>
+    <p class="para-2">
+      Do not have an account? <a href="signup.html">Sign Up Here</a>
+    </p>
+  </body>
+</html>
